@@ -1,0 +1,90 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include id="GenericTypes" schemaLocation="GenericTypes.xsd"/>
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="MessageNo"/>
+              <xs:element type="xs:string" name="Date"/>
+              <xs:element type="xs:string" name="Time"/>
+              <xs:element type="xs:string" name="FileName"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="orderStatus">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="Text100" name="orderNo"/>
+                    <xs:element type="OText10" name="ClosingNumber"/>
+                    <xs:element type="Text20" name="CustReference"/>
+                    <xs:element type="OText255" name="DeliverySlipHeaderId"/>
+                    <xs:element type="Text255" name="CustReference2"/>
+                    <xs:element type="xs:int" name="BoxNo"/>
+                    <xs:element type="OText50" name="RetTrackAndTraceCode"/>
+                    <xs:element type="OText50" name="RetTrackAndTraceUrl"/>
+                    <xs:element type="xs:string" name="FreeField1"/>
+                    <xs:element type="xs:string" name="FreeField2"/>
+                    <xs:element name="orderStatusLines">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="orderStatusLine" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="Text20Numeric" name="ItemEan"/>
+                                <xs:element type="xs:int" name="quantity"/>
+                                <xs:element type="OText255" name="DeliverySlipLineSizeId"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Packages">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Package" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="PackageID"/>
+                                <xs:element type="OText50" name="TrackAndTraceCode"/>
+                                <xs:element type="OText255" name="TrackAndTraceUrl"/>
+                                <xs:element type="OText50" name="Shipper"/>
+                                <xs:element type="OText100" name="DelvMode"/>
+                                <xs:element type="Text25" name="PackageType"/>
+                                <xs:element type="xs:int" name="Weight"/>
+                                <xs:element name="Contents">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Content" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="Text50" name="ItemEan"/>
+                                            <xs:element type="xs:int" name="quantity"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

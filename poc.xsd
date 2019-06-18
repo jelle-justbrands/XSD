@@ -1,0 +1,79 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="MessageNo"/>
+              <xs:element type="xs:string" name="Date"/>
+              <xs:element type="xs:string" name="Time"/>
+              <xs:element type="xs:string" name="FileName"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PurchaseReceipt">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="TransitNr"/>
+                    <xs:element type="xs:string" name="OrderNo"/>
+                    <xs:element type="xs:string" name="VendorOrderNo"/>
+                    <xs:element type="xs:string" name="FreightNo"/>
+                    <xs:element type="xs:string" name="TransitContainerID"/>
+                    <xs:element type="xs:string" name="InboundNo"/>
+                    <xs:element type="xs:string" name="Klantnr"/>
+                    <xs:element type="xs:string" name="Ontvangstdatum"/>
+                    <xs:element type="xs:string" name="InType"/>
+                    <xs:element name="PurchaseReceiptLines">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PurchaseReceiptLine" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="LineNum"/>
+                                <xs:element type="xs:string" name="ItemEan"/>
+                                <xs:element type="xs:int" name="ReceivedQuantity"/>
+                                <xs:element type="xs:int" name="TotalExpectedQuantity"/>
+                                <xs:element type="xs:string" name="RmaOrderReference"/>
+                                <xs:element type="xs:string" name="RmaNumber"/>
+                                <xs:element type="xs:string" name="RmaReturnReason"/>
+                                <xs:element type="xs:int" name="StockStatus"/>
+                                <xs:element type="xs:string" name="TransitLineSizeId"/>
+                                <xs:element type="xs:string" name="StyleCode"/>
+                                <xs:element type="xs:string" name="Volume"/>
+                                <xs:element type="xs:string" name="Gewicht"/>
+                                <xs:element type="xs:string" name="WarehouseCode"/>
+                                <xs:element name="Packages">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Package" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="PackageId"/>
+                                            <xs:element type="xs:int" name="Quantity"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

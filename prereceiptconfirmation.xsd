@@ -1,0 +1,38 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include id="GenericTypes" schemaLocation="GenericTypes.xsd"/>
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="MessageNo"/>
+              <xs:element type="xs:string" name="Date"/>
+              <xs:element type="xs:string" name="Time"/>
+              <xs:element type="xs:string" name="FileName"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PreReceipt" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="OText50" name="TrackAndTraceCode"/>
+                    <xs:element type="Text40" name="ReturnNo"/>
+                    <xs:element type="OText50" name="Reference"/>
+                    <xs:element type="xs:int" name="NoOfBoxes"/>
+                    <xs:element type="xs:string" name="FreeField1"/>
+                    <xs:element type="xs:string" name="FreeField2"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema> 

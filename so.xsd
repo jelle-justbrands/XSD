@@ -1,0 +1,140 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include id="GenericTypes" schemaLocation="GenericTypes.xsd"/>
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="MessageNo"/>
+              <xs:element type="xs:string" name="Date"/>
+              <xs:element type="xs:string" name="Time"/>
+              <xs:element type="xs:string" name="FileName"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DeliveryOrder" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="Text10" name="OrderDate"/>
+                    <xs:element type="Text10" name="OrderType"/>
+                    <xs:element type="Text20" name="CustReference"/>
+                    <xs:element type="Text255" name="CustReference2"/>
+                    <xs:element type="OText255" name="ReturnNo"/>
+                    <xs:element type="OText50" name="CustomerOrderNo"/>
+                    <xs:element type="OText255" name="CustomerOrderNo2"/>
+                    <xs:element type="Text25" name="DebitNumber"/>
+                    <xs:element type="Text25" name="CustomerCode"/>
+                    <xs:element type="Text20" name="Brand"/>
+                    <xs:element type="Text10" name="ReqDelvDat"/>
+                    <xs:element type="Text50" name="Shipper"/>
+                    <xs:element type="Text40" name="DelvMode"/>
+                    <xs:element name="pickUpPoint" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="pickUpPointName"/>
+                          <xs:element type="xs:string" name="pickUpPointId"/>
+                          <xs:element type="xs:string" name="pickUpPointCode"/>
+                          <xs:element type="xs:string" name="DelvName"/>
+                          <xs:element type="xs:string" name="DelvNameExtra"/>
+                          <xs:element type="xs:string" name="Street"/>
+                          <xs:element type="xs:string" name="Address2"/>
+                          <xs:element type="xs:string" name="Address3"/>
+                          <xs:element type="xs:string" name="StrNum"/>
+                          <xs:element type="xs:string" name="StrNumExt"/>
+                          <xs:element type="xs:string" name="ZipCode"/>
+                          <xs:element type="xs:string" name="City"/>
+                          <xs:element type="xs:string" name="State"/>
+                          <xs:element type="xs:string" name="Cntry"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="OText50" name="DebClientNo"/>
+                    <xs:element type="xs:boolean" name="OnHold"/>
+                    <xs:element type="xs:boolean" name="Notification"/>
+                    <xs:element type="OText255" name="LoginInstruction"/>
+                    <xs:element type="OText50" name="AddedValueCode"/>
+                    <xs:element type="Text50" name="DelivAdviceNumber"/>
+                    <xs:element type="xs:boolean" name="PrintPrice"/>
+                    <xs:element type="xs:int" name="DeliveryPriority"/>
+                    <xs:element type="OText255" name="Comment"/>
+                    <xs:element type="OText255" name="DeliverySlipHeaderId"/>
+                    <xs:element type="OText255" name="FreeField1"/>
+                    <xs:element type="OText255" name="FreeField2"/>
+                    <xs:element type="OText255" name="FreeField3"/>
+                    <xs:element name="Address" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="OText50" name="AddressId"/>
+                          <xs:element type="Text10" name="AddressType"/>
+                          <xs:element type="Text50" name="DelvName"/>
+                          <xs:element type="OText50" name="DelvNameExtra"/>
+                          <xs:element type="OText50" name="FirstName"/>
+                          <xs:element type="OText50" name="LastName"/>
+                          <xs:element type="Text150" name="Street"/>
+                          <xs:element type="OText150" name="Address2"/>
+                          <xs:element type="OText150" name="Address3"/>
+                          <xs:element type="xs:int" name="StrNum"/>
+                          <xs:element type="OText20" name="StrNumExt"/>
+                          <xs:element type="Text50" name="ZipCode"/>
+                          <xs:element type="Text150" name="City"/>
+                          <xs:element type="OText25" name="State"/>
+                          <xs:element type="Text3" name="Cntry"/>
+                          <xs:element type="Text3" name="cLanguage"/>
+                          <xs:element type="Text50" name="PhoneNum"/>
+                          <xs:element type="Text255" name="Email"/>
+                          <xs:element type="OText50" name="VATNumber"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DeliveryOrderLines">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DeliveryOrderLine" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="LineNum"/>
+                                <xs:element type="xs:string" name="ItemNum"/>
+                                <xs:element type="Text20Numeric" name="ItemEan"/>
+                                <xs:element type="xs:int" name="Quantity"/>
+                                <xs:element type="xs:decimal" name="CostPrice" minOccurs="0"/>
+                                <xs:element type="xs:decimal" name="Price"/>
+                                <xs:element type="xs:string" name="VATRate"/>
+                                <xs:element type="OText255" name="DeliverySlipLineSize_Id"/>
+                                <xs:element name="ExternalValues" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="externalStyleCode"/>
+                                      <xs:element type="xs:string" name="externalStyleDesc"/>
+                                      <xs:element type="xs:string" name="externalColorCode"/>
+                                      <xs:element type="xs:string" name="externalColorDesc"/>
+                                      <xs:element type="xs:string" name="externalSizeCode"/>
+                                      <xs:element type="xs:string" name="externalSizeDesc"/>
+                                      <xs:element type="xs:string" name="externalEAN"/>
+                                      <xs:element type="xs:string" name="externalItemNumber"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="OText255" name="FreeField1"/>
+                                <xs:element type="OText255" name="FreeField2"/>
+                                <xs:element type="OText255" name="FreeField3"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
