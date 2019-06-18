@@ -1,0 +1,81 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include id="GenericTypes" schemaLocation="GenericTypes.xsd"/>
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="MessageNo"/>
+              <xs:element type="xs:string" name="Date"/>
+              <xs:element type="xs:string" name="Time"/>
+              <xs:element type="xs:string" name="FileName"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Item" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="1">
+                    <xs:element type="xs:string" name="ItemNum"/>
+                    <xs:element type="Text20Numeric" name="ItemEan"/>
+                    <xs:element type="Text50" name="StyleCode"/>
+                    <xs:element type="Text60" name="StyleDesc"/>
+                    <xs:element type="OText50" name="FinishCode"/>
+                    <xs:element type="OText255" name="FinishDesc"/>
+                    <xs:element type="OText50" name="MaterialCode"/>
+                    <xs:element type="OText255" name="MaterialDesc"/>
+                    <xs:element type="Text50" name="ColorCode"/>
+                    <xs:element type="Text250" name="ColorDesc"/>
+                    <xs:element type="Text50" name="SizeCode"/>
+                    <xs:element type="OText150" name="SizeDesc"/>
+                    <xs:element type="xs:int" name="SizeSort"/>
+                    <xs:element type="Text10" name="ProductGroup"/>
+                    <xs:element type="Text40" name="ProductGroupDescription"/>
+                    <xs:element type="Text50" name="BrandCode"/>
+                    <xs:element type="xs:boolean" name="NOOS"/>
+                    <xs:element type="xs:boolean" name="Outlet"/>
+                    <xs:element type="xs:boolean" name="Hanging"/>
+                    <xs:element type="OText50" name="DTB"/>
+                    <xs:element type="OText255" name="PrePackContent"/>
+                    <xs:element type="OText5" name="PrePackTotalSKU"/>
+                    <xs:element type="Text50" name="IntraStatCode"/>
+                    <xs:element type="Text50" name="SeasonCode"/>
+                    <xs:element name="SuggestedRetailPrices">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SuggestedRetailPrice" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="Text5" name="CountryCode" use="optional"/>
+                                  <xs:attribute type="xs:decimal" name="Price" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="OText100" name="ItemDimensionId">
+                      <xs:annotation>
+                        <xs:documentation>Not required</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="OText255" name="ImageUrl"/>
+                    <xs:element type="OText100" name="FreeField1"/>
+                    <xs:element type="OText100" name="FreeField3"/>
+                    <xs:element type="OText100" name="FreeField2"/>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
